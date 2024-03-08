@@ -28,7 +28,7 @@ def is_anagram(s: str, t: str) -> bool:
     Non-zero frequencies mean they are not anagrams.
     Otherwise, they are considered anagrams.
 
-    Time Complexity: O(n), where n is the length of the longer input string.
+    Time Complexity: O(n)
     """
     if len(s) != len(t):
         return False

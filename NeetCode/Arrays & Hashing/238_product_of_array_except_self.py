@@ -29,6 +29,8 @@ def product_except_self(nums: List[int]) -> List[int]:
 
     result[i] = prefix[i - 1] * postfix[i + 1]
     --> [ 1(b*c*d), a(c*d), (a*b)d, (a*b*c)1 ]
+
+    Time Complexity: O(n)
     """
     product_list = [1] * len(nums)
     prefix = 1

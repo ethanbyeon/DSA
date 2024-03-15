@@ -31,6 +31,7 @@ from typing import List
 
 
 def two_sum(numbers: List[int], target: int) -> List[int]:
+    # Time Complexity: O(n^2)
     if len(numbers) == 2:
         return [1, 2]
 

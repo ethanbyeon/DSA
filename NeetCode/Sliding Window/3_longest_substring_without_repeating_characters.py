@@ -28,5 +28,5 @@ def length_of_longest_substring(s: str) -> int:
             char_set.remove(s[left])
             left += 1
         char_set.add(s[right])
-        substring_length = max(substring_length, right - left + 1)
+        substring_length = max(substring_length, len(char_set))
     return substring_length

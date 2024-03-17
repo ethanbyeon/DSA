@@ -29,15 +29,11 @@ def max_profit(prices: List[int]) -> int:
     Time Complexity: O(n)
     """
     max_profit = 0
-
-    left = 0
-    right = 0
-
-    while right < len(prices):
-        if prices[left] < prices[right]:
-            profit = prices[right] - prices[left]
+    l = 0
+    for r in range(1, len(prices)):
+        if prices[l] < prices[r]:
+            profit = prices[r] - prices[l]
             max_profit = max(max_profit, profit)
         else:
-            left = right
-        right += 1
+            l = r
     return max_profit

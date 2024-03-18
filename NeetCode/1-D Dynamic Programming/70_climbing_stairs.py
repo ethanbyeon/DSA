@@ -40,6 +40,16 @@ def climb_stairs(n: int) -> int:
 
     Time Complexity: O(n)
     """
+
+    # Bottom-Up Approach:
+    # Space Complexity: O(n + 1)
+    # dp = [0] * (n + 1)
+    # dp [0] = 1
+    # dp [1] = 1
+    # for i in range(2, n + 1):
+    #   dp[i] = dp[i - 1] + dp[i - 2]
+    # return dp[n]
+
     prev = 1
     next = 1
     for _ in range(n - 1):

@@ -25,7 +25,6 @@ def longest_palindrom(s: str):
     # for i in range(n):
     #     dp[i][i] = True
     # max_len = 1
-    # max_start = 0
     # for i in range(n - 1, -1, -1):
     #     for dist in range(1, n - i):
     #         j = i + dist
@@ -36,7 +35,6 @@ def longest_palindrom(s: str):
     #                 dp[i][j] = dp[i + 1][j - 1]
     #         if dp[i][j] == True and (j - i) + 1 > max_len:
     #             max_len = (j - i) + 1
-    #             max_start = i
     # return max_len
 
     # Expand from Center Approach:

@@ -21,13 +21,13 @@ from typing import List
 
 
 def rob_one(nums: List[int]) -> int:
-    one = 0
-    two = 0
+    h1 = 0
+    h2 = 0
     for n in nums:
-        temp = max(one + n, two)
-        one = two
-        two = temp
-    return two
+        temp = max(h1 + n, h2)
+        h1 = h2
+        h2 = temp
+    return h2
 
 
 def house_robber_two(nums: List[int]) -> int:

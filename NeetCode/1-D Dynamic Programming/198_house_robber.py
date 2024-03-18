@@ -35,11 +35,11 @@ def rob(nums: List[int]) -> int:
 
     Time Complexity: O(n)
     """
-    one = 0
-    two = 0
-    # [one, two, n, n + 1, ...]
+    h1 = 0
+    h2 = 0
+    # [h1, h2, n, n + 1, ...]
     for n in nums:
-        temp = max(n + one, two)
-        one = two
-        two = temp
-    return two
+        temp = max(n + h1, h2)
+        h1 = h2
+        h2 = temp
+    return h2

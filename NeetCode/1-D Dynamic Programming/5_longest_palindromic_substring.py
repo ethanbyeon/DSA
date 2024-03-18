@@ -24,10 +24,10 @@ def longest_palindrom(s: str):
     # dp = [[0] * n] * n
     # for i in range(n):
     #     dp[i][i] = 1
-    # for l in range(2, n - 1):
-    #     for i in range(n - l - 1):
-    #         j = i + l - 1
-    #         if l == 2 and s[i] == s[j]:
+    # for len in range(2, n - 1):
+    #     for i in range((n - len) - 1):
+    #         j = (i + len) - 1
+    #         if len == 2 and s[i] == s[j]:
     #               dp[i][j] = 2
     #         elif s[i] == s[j]:
     #               dp[i][j] = dp[i + 1][j - 1] + 2

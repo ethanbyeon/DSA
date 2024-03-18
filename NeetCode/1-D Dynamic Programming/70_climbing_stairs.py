@@ -26,6 +26,8 @@ Example 2:
 def climb_stairs(n: int) -> int:
     """
     Approach 1: Fibonacci Sequence
+    fib(n) = fib(n - 1) + fib(n - 2)
+
     Approach 2: Bottom-Up
     Example:
                 ___
@@ -41,7 +43,7 @@ def climb_stairs(n: int) -> int:
     prev = 1
     next = 1
     for _ in range(n - 1):
-        temp = prev
-        prev += next
-        next = temp
-    return prev
+        temp = next
+        next += prev
+        prev = temp
+    return next

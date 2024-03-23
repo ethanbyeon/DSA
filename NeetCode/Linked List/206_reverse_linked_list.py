@@ -18,6 +18,15 @@ class ListNode(object):
 
 def reverse_list(head: ListNode) -> ListNode | None:
     # Time Complexity: O(n)
+    # Recursive Approach:
+    # if head is None:
+    #     return None
+    # new_head = head
+    # if head.next is not None:
+    #     new_head = reverse_list(head.next)
+    #     head.next.next = head
+    # head.next = None
+    # return new_head
     prev = None
     current = head
     while current is not None:

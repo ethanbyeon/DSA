@@ -19,7 +19,7 @@ Example:
 """
 
 
-def unique_paths(m: int, n: int):
+def unique_paths(m: int, n: int) -> int:
     # Time Complexity: O(m * n)
     dp = [[1] * m for _ in range(n)]
     for i in range(n - 2, -1, -1):

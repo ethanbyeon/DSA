@@ -17,6 +17,7 @@ class TreeNode(object):
 
 
 def invert_tree(root: TreeNode) -> TreeNode | None:
+    # Time Complexity: O(n)
     if root is None:
         return None
 

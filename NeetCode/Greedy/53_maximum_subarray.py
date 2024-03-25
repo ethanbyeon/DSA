@@ -14,3 +14,17 @@ Example 2:
     Output: 1
     Explanation: The subarray [1] has the largest sum 1.
 """
+
+from typing import List
+
+
+def max_subarray(nums: List[int]) -> int:
+    # Time Complexity: O(n)
+    max_sub = nums[0]
+    current_sum = 0
+    for n in nums:
+        if current_sum < 0:
+            current_sum = 0
+        current_sum += n
+        max_sub = max(max_sub, current_sum)
+    return max_sub

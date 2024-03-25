@@ -27,7 +27,7 @@ def max_product(nums: List[int]) -> int:
     current_max = 1
     for n in nums:
         temp = current_max * n
-        current_max = max(n * current_max, n * current_min, n)
+        current_max = max(temp, n * current_min, n)
         current_min = min(temp, n * current_min, n)
-        result = max(result, current_max, current_min)
+        result = max(result, current_max)
     return result

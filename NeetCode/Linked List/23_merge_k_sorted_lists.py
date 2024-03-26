@@ -19,7 +19,7 @@ Example:
     1->1->2->3->4->4->5->6
 """
 
-from typing import List
+from typing import List, Optional
 
 
 class ListNode(object):
@@ -28,7 +28,7 @@ class ListNode(object):
         self.next = next
 
 
-def merge_lists(l1: ListNode, l2: ListNode) -> ListNode:
+def merge_lists(l1: Optional[ListNode], l2: Optional[ListNode]) -> Optional[ListNode]:
     sentinel = ListNode()
     current = sentinel
     while l1 is not None and l2 is not None:
@@ -47,7 +47,7 @@ def merge_lists(l1: ListNode, l2: ListNode) -> ListNode:
     return sentinel.next
 
 
-def merge_k_lists(lists: List[ListNode]) -> ListNode | None:
+def merge_k_lists(lists: List[Optional[ListNode]]) -> Optional[ListNode]:
     # Time Complexity: O(n log k)
     if not lists:
         return None

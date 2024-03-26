@@ -15,6 +15,8 @@ Example:
     Explanation: The LCA of nodes 2 and 8 is 6.
 """
 
+from typing import Optional
+
 
 class TreeNode(object):
     def __init__(self, val=0, left=None, right=None) -> None:
@@ -23,7 +25,9 @@ class TreeNode(object):
         self.right = right
 
 
-def lca(root: TreeNode, p: TreeNode, q: TreeNode) -> TreeNode:
+def lca(
+    root: Optional[TreeNode], p: Optional[TreeNode], q: Optional[TreeNode]
+) -> Optional[TreeNode]:
     # Time Complexity: O(log n)
     current = root
     while current is not None:

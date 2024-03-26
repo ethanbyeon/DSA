@@ -9,6 +9,8 @@ Example:
     Output: [5, 4, 3, 2, 1]
 """
 
+from typing import Optional
+
 
 class ListNode(object):
     def __init__(self, val=0, next=None) -> None:
@@ -16,7 +18,7 @@ class ListNode(object):
         self.next = next
 
 
-def reverse_list(head: ListNode) -> ListNode | None:
+def reverse_list(head: Optional[ListNode]) -> Optional[ListNode]:
     # Time Complexity: O(n)
     # Recursive Approach:
     # if head is None:

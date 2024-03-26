@@ -20,6 +20,8 @@ Example 2:
     Explanation: The root node's value is 5 but its right child's value is 4.
 """
 
+from typing import Optional, Union
+
 
 class TreeNode(object):
     def __init__(self, val=0, left=None, right=None) -> None:
@@ -28,9 +30,13 @@ class TreeNode(object):
         self.right = right
 
 
-def is_valid_bst(root: TreeNode) -> bool:
+def is_valid_bst(root: Optional[TreeNode]) -> bool:
     # Time Complexity: O(n)
-    def is_valid(node: TreeNode, left: TreeNode, right: TreeNode) -> bool:
+    def is_valid(
+        node: Optional[TreeNode],
+        left: Union[TreeNode, int, float, None],
+        right: Union[TreeNode, int, float, None],
+    ) -> bool:
         if node is None:
             return True
         if not (node.val > left and node.val < right):

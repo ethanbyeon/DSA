@@ -10,6 +10,8 @@ Example:
     Output: 1
 """
 
+from typing import Optional
+
 
 class TreeNode(object):
     def __init__(self, val=0, left=None, right=None) -> None:
@@ -18,7 +20,7 @@ class TreeNode(object):
         self.right = right
 
 
-def kth_smallest(root: TreeNode, k: int) -> int:
+def kth_smallest(root: Optional[TreeNode], k: int) -> int:
     # Time Complexity: O(n)
     stack = []
     current = root

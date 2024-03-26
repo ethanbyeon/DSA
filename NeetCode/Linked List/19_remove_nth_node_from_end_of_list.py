@@ -9,6 +9,8 @@ Example:
     Output: [1, 2, 3, 5]
 """
 
+from typing import Optional
+
 
 class ListNode(object):
     def __init__(self, val=0, next=None) -> None:
@@ -16,7 +18,7 @@ class ListNode(object):
         self.next = next
 
 
-def remove_nth_from_end(head: ListNode, n: int) -> ListNode | None:
+def remove_nth_from_end(head: Optional[ListNode], n: int) -> Optional[ListNode]:
     # Time Complexity: O(n)
     sentinel = ListNode(0, head)
     left = sentinel

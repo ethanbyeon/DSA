@@ -25,6 +25,8 @@ Example 2:
     Output: []
 """
 
+from typing import Optional
+
 
 class TreeNode(object):
     def __init__(self, val=0, left=None, right=None) -> None:
@@ -34,7 +36,7 @@ class TreeNode(object):
 
 
 class Codec:
-    def serialize(self, root: TreeNode) -> str:
+    def serialize(self, root: Optional[TreeNode]) -> str:
         result = []
 
         def dfs(node: TreeNode) -> str | None:
@@ -48,7 +50,7 @@ class Codec:
         dfs(root)
         return ",".join(result)
 
-    def deserialize(self, data: str) -> TreeNode | None:
+    def deserialize(self, data: str) -> Optional[TreeNode]:
         values = data.split(",")
         self.i = 0
 

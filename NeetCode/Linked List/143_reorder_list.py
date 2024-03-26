@@ -16,6 +16,8 @@ Example:
     Output: [1, 4, 2, 3]
 """
 
+from typing import Optional
+
 
 class ListNode(object):
     def __init__(self, val=0, next=None) -> None:
@@ -23,7 +25,7 @@ class ListNode(object):
         self.next = next
 
 
-def reorder_list(head: ListNode) -> None:
+def reorder_list(head: Optional[ListNode]) -> None:
     # Time Complexity: O(n)
     # Find the middle half
     slow = head

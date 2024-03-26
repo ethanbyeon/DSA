@@ -21,6 +21,8 @@ Example:
     where the tail connects to the 1st node (0-indexed).
 """
 
+from typing import Optional
+
 
 class ListNode(object):
     def __init__(self, val=0, next=None) -> None:
@@ -28,7 +30,7 @@ class ListNode(object):
         self.next = next
 
 
-def has_cycle(head: ListNode) -> bool:
+def has_cycle(head: Optional[ListNode]) -> bool:
     # Time Complexity: O(n)
     slow = fast = head
     while fast is not None and fast.next is not None:

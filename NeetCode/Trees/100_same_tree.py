@@ -12,6 +12,8 @@ Example:
     Output: true
 """
 
+from typing import Optional
+
 
 class TreeNode(object):
     def __init__(self, val=0, left=None, right=None) -> None:
@@ -20,7 +22,7 @@ class TreeNode(object):
         self.right = right
 
 
-def is_same_tree(p: TreeNode, q: TreeNode) -> bool:
+def is_same_tree(p: Optional[TreeNode], q: Optional[TreeNode]) -> bool:
     # Time Complexity: O(p + q)
     if p is None and q is None:
         return True

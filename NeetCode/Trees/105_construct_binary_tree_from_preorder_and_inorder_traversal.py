@@ -14,7 +14,7 @@ Example 2:
     Output: [-1]
 """
 
-from typing import List
+from typing import List, Optional
 
 
 class TreeNode(object):
@@ -24,7 +24,7 @@ class TreeNode(object):
         self.right = right
 
 
-def build_tree(preorder: List[int], inorder: List[int]) -> TreeNode | None:
+def build_tree(preorder: List[int], inorder: List[int]) -> Optional[TreeNode]:
     # Time Complexity: O(n)
     if len(preorder) == 0 or len(inorder) == 0:
         return None

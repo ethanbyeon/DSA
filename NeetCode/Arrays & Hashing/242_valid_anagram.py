@@ -42,11 +42,7 @@ def is_anagram(s: str, t: str) -> bool:
             freq_map[letter] = 1
 
     for letter in t:
-        if letter not in freq_map:
+        if letter not in freq_map or freq_map[letter] == 0:
             return False
         freq_map[letter] -= 1
-
-    for freq in freq_map.values():
-        if freq != 0:
-            return False
     return True

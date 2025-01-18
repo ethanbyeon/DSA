@@ -25,20 +25,13 @@ Example 3:
 
 def is_valid(s: str) -> bool:
     # Time Complexity: O(n)
-    if len(s) == 1:
-        return False
-
+    closed_map = {")": "(", "}": "{", "]": "["}
     stack = []
-    for char in s:
-        if char == "(":
-            stack.append(")")
-        elif char == "{":
-            stack.append("}")
-        elif char == "[":
-            stack.append("]")
+    for open_bracket in s:
+        if open_bracket not in closed_map:
+            stack.append(open_bracket)
         else:
-            if (stack) != 0 and stack[-1] == char:
-                stack.pop()
-            else:
+            top = stack.pop() if stack else ""
+            if closed_map[open_bracket] != top:
                 return False
-    return len(stack) == 0
+    return not stack

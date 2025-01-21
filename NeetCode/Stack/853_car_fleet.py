@@ -54,12 +54,38 @@ from typing import List
 
 
 def carFleet(target: int, position: List[int], speed: List[int]) -> int:
-    # Time Complexity: O(n*logn)
+    """
+    We sort cars by their time to reach the target in
+    descending order to process the slowest cars first.
+
+    This simplifies fleet merging:
+
+    1. Why descending order?
+       - Processing in ascending order (fastest first) makes it unclear which
+         fleet a car will merge into, as it may catch up to multiple fleets.
+       - In descending order, the car at the top of the stack is the slowest and
+         closest to the target, ensuring we handle one fleet at a time.
+
+    2. Fleet merging:
+       - For each car, calculate its time to reach the target and
+         compare it to the fleet at the top of the stack.
+       - If the current car is faster (or takes the same time),
+         it merges with the fleet at the top.
+       - If it’s slower, it forms a new fleet.
+
+    3. Stack utility:
+       - The stack records distinct fleets by their time to reach the target.
+       - By iterating in descending order,
+         we consistently determine fleet formation.
+
+    Time Complexity: O(n log n)
+    Space complexity: O(n)
+    """
     car_info = [(p, s) for p, s in zip(position, speed)]
     car_info.sort(reverse=True)
     stack = []
     for p, s in car_info:
-        stack.append((target - p) / s)  # time
+        stack.append((target - p) / s)  # time = distance / speed
         if len(stack) >= 2 and stack[-1] <= stack[-2]:
             stack.pop()
     return len(stack)

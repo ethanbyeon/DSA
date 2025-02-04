@@ -128,12 +128,12 @@ def islandsAndTreasureMultiSourceBFS(grid: List[List[int]]) -> None:
         ):
             return
         visited.add((row, col))
-        q.append([row, col])
+        q.append((row, col))
 
     for row in range(ROWS):
         for col in range(COLS):
             if grid[row][col] == 0:
-                q.append([row, col])
+                q.append((row, col))
                 visited.add((row, col))
 
     distance = 0

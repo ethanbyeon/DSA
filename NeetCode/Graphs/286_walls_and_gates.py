@@ -49,20 +49,27 @@ def islandsAndTreasureDFS(grid: List[List[int]]) -> None:
     # Time Complexity: O(m * n * 4^(m * n))
     ROWS, COLS = len(grid), len(grid[0])
     INF = 2147483647
-    directions = [(0, -1), (0, 1), (-1, 0), (1, 0)]
-    visited = [[False] * COLS for _ in range(ROWS)]
+    directions = [(1, 0), (-1, 0), (0, -1), (0, 1)]
+    visited = set()
 
     def dfs(row: int, col: int) -> int:
-        if row < 0 or col < 0 or row >= ROWS or col >= COLS or visited[row][col]:
+        if (
+            row < 0
+            or col < 0
+            or row >= ROWS
+            or col >= COLS
+            or (row, col) in visited
+            or grid[row][col] == -1
+        ):
             return INF
         if grid[row][col] == 0:
             return 0
 
-        visited[row][col] = True
+        visited.add((row, col))
         distance = INF
         for dr, dc in directions:
             distance = min(distance, 1 + dfs(row + dr, col + dc))
-        visited[row][col] = False
+        visited.remove((row, col))
         return distance
 
     for row in range(ROWS):
@@ -75,12 +82,11 @@ def islandsAndTreasureBFS(grid: List[List[int]]) -> None:
     # Time Complexity: O((m * n)^2)
     ROWS, COLS = len(grid), len(grid[0])
     INF = 2147483647
-    directions = [(0, -1), (0, 1), (-1, 0), (1, 0)]
+    directions = [(1, 0), (-1, 0), (0, -1), (0, 1)]
 
     def bfs(row: int, col: int) -> int:
         q = deque([(row, col)])
-        visited = [[False] * COLS for _ in range(ROWS)]
-        visited[row][col] = True
+        visited = set((row, col))
         distance = 0
 
         while q:
@@ -93,7 +99,7 @@ def islandsAndTreasureBFS(grid: List[List[int]]) -> None:
                     if (
                         0 <= nr < ROWS
                         and 0 <= nc < COLS
-                        and not visited[nr][nc]
+                        and (nr, nc) not in visited
                         and grid[nr][nc] != -1
                     ):
                         q.append((nr, nc))
@@ -135,8 +141,8 @@ def islandsAndTreasureMultiSourceBFS(grid: List[List[int]]) -> None:
         for _ in range(len(q)):
             row, col = q.popleft()
             grid[row][col] = distance
-            add_cell(row, col - 1)
-            add_cell(row, col + 1)
             add_cell(row - 1, col)
             add_cell(row + 1, col)
+            add_cell(row, col - 1)
+            add_cell(row, col + 1)
         distance += 1
